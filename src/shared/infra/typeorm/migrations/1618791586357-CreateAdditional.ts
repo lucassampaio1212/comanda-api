@@ -12,8 +12,9 @@ export class CreateAdditional1618791586357 implements MigrationInterface {
                     isPrimary: true,
                 },
                 {
-                    name: "name",
-                    type: "varchar"
+                    name: "description",
+                    type: "varchar",
+                    
                 },
                 {
                     name: "amount",

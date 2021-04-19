@@ -9,7 +9,7 @@ class Category {
 
     @Column()
     name: string;
-
+    
     @ManyToMany(() => Additional)
     @JoinTable({
         name: "categories_additional",

@@ -1,12 +1,13 @@
-import { Column, CreateDateColumn, PrimaryColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, PrimaryColumn } from "typeorm";
 import {v4 as uuidV4} from "uuid";
 
+@Entity("additional")
 class Additional {
     @PrimaryColumn("uuid")
     id: string;
 
     @Column()
-    name: string;
+    description: string;
 
     @Column()
     amount: number;
