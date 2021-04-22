@@ -10,6 +10,8 @@ import ICategoriesRepository from "@modules/Products/repositories/ICategoriesRep
 import CategoriesRepositories from "@modules/Products/infra/typeorm/repositories/CategoriesRepositories";
 import IAdditionalsRepository from "@modules/Products/repositories/IAdditionalsRepository";
 import AdditionalsRepositories from "@modules/Products/infra/typeorm/repositories/AdditionalsRepositories";
+import IProductsRepository from "@modules/Products/repositories/IProductsRepository";
+import ProductsRepositories from "@modules/Products/infra/typeorm/repositories/ProductsRepositories";
 
 
 
@@ -30,4 +32,8 @@ container.registerSingleton<ICategoriesRepository>(
 container.registerSingleton<IAdditionalsRepository>(
     "AdditionalRepository",
     AdditionalsRepositories
+)
+container.registerSingleton<IProductsRepository>(
+    "ProductsRepository",
+    ProductsRepositories
 )
