@@ -4,7 +4,7 @@ import { IUsersTokensRepository } from "@modules/Accounts/repositories/IUsersTok
 import IDateProvider from "@shared/container/providers/DateProvider/IDateProvider";
 import { compare } from "bcryptjs";
 import { sign } from "jsonwebtoken";
-import { inject } from "tsyringe";
+import { inject, injectable } from "tsyringe";
 
 
 interface IRequest {
@@ -22,6 +22,7 @@ interface IResponse {
     refresh_token: string;
 }
 
+@injectable()
 class AuthenticateUserUseCase {
 
     constructor(

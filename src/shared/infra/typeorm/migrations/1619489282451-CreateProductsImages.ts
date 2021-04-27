@@ -1,44 +1,37 @@
 import {MigrationInterface, QueryRunner, Table} from "typeorm";
 
-export class CreateTableProducts1618892619339 implements MigrationInterface {
+export class CreateProductsImages1619489282451 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
+
         await queryRunner.createTable(new Table({
-            name: "products",
+            name: "products_imagens",
             columns: [
                 {
                     name: "id",
                     type: "uuid",
-                    isPrimary: true
+                    isPrimary: true,
                 },
                 {
-                    name: "category_id",
-                    type: "uuid"
-                },
+                    name: "product_id",
+                    type: "uuid",
+                }, 
                 {
-                    name: "description",
-                    type: "varchar"
-                },
-                {
-                    name: "amount",
-                    type: "numeric"
-                },
-                {
-                    name: "situation",
+                    name: "image_name",
                     type: "varchar"
                 },
                 {
                     name: "created_at",
-                    type: "timestamp with time zone",
+                    type: "timestamp",
                     default: "now()"
                 }
             ],
             foreignKeys: [
                 {
-                    name: "FKProductsCategory",
-                    referencedTableName: "categories",
+                    name: "FKProductImage",
+                    referencedTableName: "products",
                     referencedColumnNames: ["id"],
-                    columnNames: ["category_id"],
+                    columnNames: ["product_id"],
                     onDelete: "SET NULL",
                     onUpdate: "SET NULL",
                 }
@@ -47,7 +40,7 @@ export class CreateTableProducts1618892619339 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable("products");
+        await queryRunner.dropTable("products_imagens")
     }
 
 }
