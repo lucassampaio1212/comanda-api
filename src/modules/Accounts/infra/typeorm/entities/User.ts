@@ -1,4 +1,5 @@
-import { Column, CreateDateColumn, Entity, PrimaryColumn } from "typeorm";
+import Orders from "@modules/Orders/infra/typeorm/entities/Orders";
+import { Column, CreateDateColumn, Entity, OneToMany, PrimaryColumn } from "typeorm";
 import {v4 as uuidV4} from "uuid";
 
 @Entity("users")
@@ -17,6 +18,9 @@ class User {
 
     @Column()
     isAdmin: boolean;
+
+    @OneToMany(() => Orders, orders => orders.user)
+    orders: Orders[]
 
     @CreateDateColumn()
     created_at: Date;

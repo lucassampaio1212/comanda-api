@@ -14,6 +14,10 @@ import IProductsRepository from "@modules/Products/repositories/IProductsReposit
 import ProductsRepositories from "@modules/Products/infra/typeorm/repositories/ProductsRepositories";
 import IProductsImage from "@modules/Products/repositories/IProductsImage";
 import ProductsImagesRepositories from "@modules/Products/infra/typeorm/repositories/ProductsImagesRepositories";
+import { ITablesRepository } from "@modules/Orders/repositories/ITablesRepository";
+import TablesRepositories from "@modules/Orders/infra/typeorm/repositories/TablesRepositories";
+import { IDetailOrdersRepository } from "@modules/Orders/repositories/IDetailOrdersRepository";
+import DetailsOrdersRepositories from "@modules/Orders/infra/typeorm/repositories/DetailsOrdersRepositories";
 
 
 
@@ -42,4 +46,12 @@ container.registerSingleton<IProductsRepository>(
 container.registerSingleton<IProductsImage>(
     "ProductsImages",
     ProductsImagesRepositories
+)
+container.registerSingleton<ITablesRepository>(
+    "TablesRepository",
+    TablesRepositories
+)
+container.registerSingleton<IDetailOrdersRepository>(
+    "DetailsOdersRepository",
+    DetailsOrdersRepositories
 )
